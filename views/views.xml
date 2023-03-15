@@ -1,0 +1,41 @@
+<odoo>
+    <data>
+        <record model="ir.ui.view" id="fsm_order_form">
+            <field name="name">fsm.order.form</field>
+            <field name="model">fsm.order</field>
+            <field name="arch" type="xml">
+                <form string="Order">
+                    <header>
+                        <button name="create_route" string="Create Route" class="oe_highlight" type="object"/>
+                    </header>
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="view_gestion_wizard_form">
+            <field name="name">Gestion Wizard Form View</field>
+            <field name="model">fms.routeswizard</field>
+            <field name="arch" type="xml">
+                <form string="Wizard">
+                    <group>
+                        <field name="name"/>
+                        <field name="description"/>
+                    </group>
+                    <footer>
+                        <button name="create_route" string="Submit" type="object" class="btn-primary"/>
+                        <button string="Cancel" class="btn-secondary" special="cancel"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+        <record model="ir.actions.act_window" id="action_gestion_wizard">
+            <field name="name">Gestion Wizard</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">fms.routeswizard</field>
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="view_gestion_wizard_form"/>
+            <field name="target">new</field>
+            <field name="final_route"></field>
+        </record>
+    </data>
+</odoo>
